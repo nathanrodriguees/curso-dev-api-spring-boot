@@ -1,3 +1,4 @@
+package br.edu.senaisp.Metodos;
 import java.util.Scanner;
 
 public class Teste {
