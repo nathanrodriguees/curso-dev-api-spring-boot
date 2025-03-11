@@ -1,6 +1,6 @@
 package br.edu.senaisp.OrientacaoObjeto.model;
 
-public class Pessoa {
+public abstract class Pessoa {
 	private String nome;
 	private String cpf;
 
