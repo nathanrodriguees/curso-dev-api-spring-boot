@@ -6,9 +6,7 @@ public class Teste {
 
 	public static void main(String[] args) {
 
-		Motor v8 = new Motor();
-		v8.setNrSerie("A2532Y-BR");
-
+		Motor v8 = new Motor("A2532Y-BR");
 		System.out.println(v8.getNrSerie());
 
 	}

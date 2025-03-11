@@ -5,8 +5,12 @@ public class Motor {
 	private String fabricante;
 	private int potencia;
 	
+	public Motor(String nrSerie) {
+		this.nrSerie = nrSerie;
+	}
+
 	public String getNrSerie() {
-		return nrSerie;
+		return "SN: " + nrSerie;
 	}
 	
 	public void setNrSerie(String nrSerie) {
