@@ -4,6 +4,8 @@ public abstract class Pessoa {
 	private String nome;
 	private String cpf;
 
+	public abstract void tomarCafe();
+
 	public String getNome() {
 		return nome;
 	}
