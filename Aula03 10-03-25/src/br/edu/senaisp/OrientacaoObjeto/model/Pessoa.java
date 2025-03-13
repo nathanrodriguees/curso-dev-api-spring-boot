@@ -21,4 +21,15 @@ public abstract class Pessoa {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null)
+			return false;
+		if (!(obj instanceof Pessoa))
+			return false;
+
+		Pessoa tmp = (Pessoa) obj;
+		return (cpf.equals(tmp.cpf));
+	}
 }
