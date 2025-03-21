@@ -1,10 +1,10 @@
-package br.edu.senaisp.Aula10_19_03_25;
+package br.edu.senaisp.Aula11_20_03_25;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Aula10190325ApplicationTests {
+class Aula11200325ApplicationTests {
 
 	@Test
 	void contextLoads() {

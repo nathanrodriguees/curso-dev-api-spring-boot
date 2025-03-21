@@ -1,13 +1,13 @@
-package br.edu.senaisp.Aula10_19_03_25;
+package br.edu.senaisp.Aula11_20_03_25;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Aula10190325Application {
+public class Aula11200325Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Aula10190325Application.class, args);
+		SpringApplication.run(Aula11200325Application.class, args);
 	}
 
 }
