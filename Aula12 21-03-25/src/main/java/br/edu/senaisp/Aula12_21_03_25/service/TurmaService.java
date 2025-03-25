@@ -27,7 +27,6 @@ public class TurmaService {
 		return op.orElse(null);
 
 		// return op.orElseThrow(()-> new RuntimeException());
-
 	}
 
 	public Turma insertTurma(Turma turma) {
