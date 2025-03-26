@@ -1,4 +1,4 @@
-package br.edu.senaisp.Aula12_21_03_25.model;
+package br.edu.senaisp.Aula14_25_03_25.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 

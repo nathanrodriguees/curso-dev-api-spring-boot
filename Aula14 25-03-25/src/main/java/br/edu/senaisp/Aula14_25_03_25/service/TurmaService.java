@@ -1,4 +1,4 @@
-package br.edu.senaisp.Aula12_21_03_25.service;
+package br.edu.senaisp.Aula14_25_03_25.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,10 +7,10 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.edu.senaisp.Aula12_21_03_25.model.Aluno;
-import br.edu.senaisp.Aula12_21_03_25.model.Turma;
-import br.edu.senaisp.Aula12_21_03_25.repository.AlunoRepository;
-import br.edu.senaisp.Aula12_21_03_25.repository.TurmaRepository;
+import br.edu.senaisp.Aula14_25_03_25.model.Aluno;
+import br.edu.senaisp.Aula14_25_03_25.model.Turma;
+import br.edu.senaisp.Aula14_25_03_25.repository.AlunoRepository;
+import br.edu.senaisp.Aula14_25_03_25.repository.TurmaRepository;
 
 @Service
 public class TurmaService {
@@ -37,7 +37,7 @@ public class TurmaService {
 	}
 
 	public Turma insertTurma(Turma turma) {
-		
+
 		Turma tmp = turmaRepository.save(turma);
 
 		List<Aluno> alunos = new ArrayList<Aluno>();
@@ -48,8 +48,21 @@ public class TurmaService {
 
 		alunos = alunoRepository.saveAll(alunos);
 		tmp.setAlunos(alunos);
-		
+
 		return tmp;
+	}
+
+	public Turma alterarPorId(Long id, Turma turma) {
+		Optional<Turma> op = turmaRepository.findById(id);
+
+//		op.orElseThrow(()-> new RuntimeException("Usuário não existe"));
+
+		if (op.isPresent()) {
+			turma.setId(id);
+			return turmaRepository.save(turma);
+		} else
+			return null;
+
 	}
 
 	public Turma excluirPorId(Long id) {
@@ -65,19 +78,6 @@ public class TurmaService {
 		}
 
 		return null;
-
-	}
-
-	public Turma alterarPorId(Long id, Turma turma) {
-		Optional<Turma> op = turmaRepository.findById(id);
-
-//		op.orElseThrow(()-> new RuntimeException("Usuário não existe"));
-
-		if (op.isPresent()) {
-			turma.setId(id);
-			return turmaRepository.save(turma);
-		} else
-			return null;
 
 	}
 }
