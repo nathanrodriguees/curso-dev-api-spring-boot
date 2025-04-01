@@ -22,18 +22,23 @@ public class ProfessorService {
 
 	public Professor gravar(Professor professor) {
 
-		Set<Turma> turmas = new HashSet<>();
+		try {
+			Set<Turma> turmas = new HashSet<>();
 
-		for (Turma t : professor.getTurmas()) {
-			t = turmaRepository.findById(t.getId()).orElse(null);
+			for (Turma t : professor.getTurmas()) {
+				t = turmaRepository.findById(t.getId()).orElse(null);
 
-			if (t != null)
-				turmas.add(t);
+				if (t != null)
+					turmas.add(t);
+			}
+
+			professor.setTurmas(turmas);
+			return professorRepository.save(professor);
+
+		} catch (Exception e) {
+			throw new RuntimeException("Não foi possível incluir o Professor" +  e.getMessage());
 		}
 
-		professor.setTurmas(turmas);
-
-		return professorRepository.save(professor);
 	}
 
 }

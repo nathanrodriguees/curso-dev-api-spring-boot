@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Embedded;
@@ -47,6 +49,7 @@ public class Turma {
 	@JoinColumn(name = "disciplina_id")
 	private Disciplina disciplina;
 
+	@JsonProperty(access = Access.WRITE_ONLY)
 	@ManyToMany(mappedBy = "turmas")
 	private Set<Professor> professores = new HashSet<>();
 
