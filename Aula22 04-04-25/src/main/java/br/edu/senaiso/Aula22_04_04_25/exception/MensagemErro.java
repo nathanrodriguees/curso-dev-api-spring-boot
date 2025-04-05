@@ -9,7 +9,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-public class MensagemError {
+public class MensagemErro {
 
 	private LocalDateTime dtOcorrencia;
 	private String mensagem;

@@ -1,5 +1,7 @@
 package br.edu.senaiso.Aula22_04_04_25.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +25,7 @@ public class AlunoController {
 	private AlunoService alunoService;
 
 	@GetMapping
-	public ResponseEntity buscarTodos() {
+	public ResponseEntity<List<Aluno>> buscarTodos() {
 		return ResponseEntity.ok(alunoService.buscarTodos());
 	}
 
@@ -34,7 +36,6 @@ public class AlunoController {
 			return ResponseEntity.notFound().build();
 		else
 			return ResponseEntity.ok(a);
-
 	}
 
 	@PostMapping
@@ -49,13 +50,6 @@ public class AlunoController {
 
 	@PutMapping("/{id}")
 	public ResponseEntity alterar(@PathVariable Long id, @RequestBody Aluno aluno) {
-
-//		try {
-//			Aluno a = alunoService.alterarPorId(id, aluno);
-//			return ResponseEntity.ok(aluno);
-//		} catch (Exception e) {
-//			return ResponseEntity.badRequest().body(e.getMessage());
-//		}
 
 		aluno = alunoService.alterarPorId(id, aluno);
 		if (aluno == null)

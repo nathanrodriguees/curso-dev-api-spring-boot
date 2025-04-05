@@ -49,7 +49,7 @@ public class AlunoService {
 			aluno.setId(id);
 			return alunoRepository.save(aluno);
 		} else
-			return null;
+			throw new RecursoNotFound("");
 	}
 
 	public Aluno excluirPorId(Long id) {
