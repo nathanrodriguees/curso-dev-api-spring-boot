@@ -9,13 +9,13 @@ import br.edu.senaisp.colegio.model.dto.DisciplinaClassDTO;
 
 @Mapper
 public interface DisciplinaStructMapper {
-	
+
 	DisciplinaStructMapper INSTANCE = Mappers.getMapper(DisciplinaStructMapper.class);
-	
+
 	@Mapping(source = "nomeDisciplina", target = "titulo")
 	@Mapping(source = "horas", target = "duracaoH", numberFormat = "###")
 	Disciplina toDisciplina(DisciplinaClassDTO dto);
-	
+
 	DisciplinaClassDTO toDTO(Disciplina disciplina);
 
 }
