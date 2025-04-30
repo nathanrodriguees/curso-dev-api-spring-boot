@@ -25,9 +25,13 @@ public class SegurancaFilterChain {
 
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		return http.csrf().disable().sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-				.authorizeHttpRequests(a -> a.requestMatchers(HttpMethod.POST, "/api/login/").permitAll()
-						.requestMatchers(HttpMethod.GET, "/api/usuario/").hasRole(EPerfil.ADMIN.toString()).anyRequest()
+		return http.csrf().disable().
+				sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+						)
+				.authorizeHttpRequests(a -> a
+						.requestMatchers(HttpMethod.POST, "/api/login").permitAll()
+						.requestMatchers(HttpMethod.POST, "/api/usuario").permitAll()
+						.requestMatchers(HttpMethod.GET, "/api/usuario").hasRole(EPerfil.ADMIN.toString()).anyRequest()
 						.authenticated())
 				.addFilterBefore(segurancaFilter, UsernamePasswordAuthenticationFilter.class).build();
 	}

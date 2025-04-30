@@ -27,7 +27,8 @@ public class LoginService implements UserDetailsService {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 
-	public String autenticar(Usuario usuario, AuthenticationManager authenticationManager) {
+	public String autenticar(Usuario usuario, 
+			AuthenticationManager authenticationManager) {
 		UsernamePasswordAuthenticationToken upat = new UsernamePasswordAuthenticationToken(usuario.getLogin(),
 				usuario.getSenha());
 
@@ -46,8 +47,11 @@ public class LoginService implements UserDetailsService {
 		try {
 			Algorithm algorithm = Algorithm.HMAC256(chaveSecreta);
 
-			String token = JWT.create().withIssuer("API Colegio").withSubject(usuario.getLogin())
-					.withExpiresAt(Instant.now().plusSeconds(3600)).sign(algorithm);
+			String token = JWT.create()
+					.withIssuer("API Colegio")
+					.withSubject(usuario.getLogin())
+					.withExpiresAt(Instant.now().plusSeconds(3600))
+					.sign(algorithm);
 			return token;
 
 		} catch (JWTCreationException e) {
